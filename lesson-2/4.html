@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+Необходимо реализовать четыре функции, каждая функция должна принимать по два
+числа и выполнять одну из операций (каждая функция выполняет одну из них):
+1. Сложение
+2. Разность
+3. Умножение
+4. Деление
+
+Необходимо сделать так, чтобы функция вернула число, например выражение
+`console.log(sum(2, 6));` должно вывести число 8 в консоль (sum - функция
+сложения в данном примере, ваши названия функций могут отличаться).
+
+Округлять значения, которые возвращают функции не нужно, однако, обратите
+внимание на разность, функция должна вычесть из большего числа меньшее, либо
+вернуть 0, если числа равны.
+
+Функциям всегда передаются корректные числа, проверки на NaN, Infinity делать
+не нужно.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+  <script>
+    "use strict";
+
+    const a = Number.parseInt(prompt('Введите число "a"'));
+    const b = Number.parseInt(prompt('Введите число "b"'));
+    const sum = sumFn(a, b);
+    const dif = difFn(a, b);
+    const div = divFn(a, b);
+    const mult = multFn(a, b);
+    if (a > b) {
+      console.log(`a+b=${sum}, a-b=${dif}, a*b=${mult}, a/b=${div}`)
+    } else if (b > a) {
+      console.log(`a+b=${sum}, b-a=${dif}, a*b=${mult}, a/b=${div}`)
+    } else {
+      console.log(`a+b=${sum}, a-b=${dif}, a*b=${mult}, a/b=1`)
+    }
+
+    /**
+     * Функция складывает числа a и b.
+     * @param {number} a - число a.
+     * @param {number} b - число b.
+     * @return {number} - сумма чисел a и b.
+     */
+    function sumFn(a, b) {
+      return a + b;
+    }
+
+    /**
+     * Функция делает разность a и b.
+     * @param {number} a - число a.
+     * @param {number} b - число b.
+     * @return {number} - разность чисел a и b.
+     */
+    function difFn(a, b) {
+      if (a > b) {
+        return a - b;
+      } else if (b > a) {
+        return b - a;
+      } else {
+        return 0;
+      }
+    }
+
+    /**
+     * Функция умножает a и b.
+     * @param {number} a - число a.
+     * @param {number} b - число b.
+     * @return {number} - умножение чисел a и b.
+     */
+    function multFn(a, b) {
+      return a * b;
+    }
+
+    /**
+     * Функция делит a на b.
+     * @param {number} a - число a.
+     * @param {number} b - число b.
+     * @return {number} - деление числа a на b.
+     */
+    function divFn(a, b) {
+      return a / b;
+    }
+
+  </script>
+</body>
+
+</html>
