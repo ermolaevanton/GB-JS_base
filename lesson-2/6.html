@@ -26,14 +26,11 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
 -->
   <script>
     "use strict";
-    const applesNumber = Number.parseInt(prompt('Введите количество'));
-    const word = declinationOfNumber(applesNumber, "яблоко", "яблока", "яблок");
-    function declinationOfNumber(applesNumber) {
-      const one = 'яблоко';
-      const two = 'яблока';
-      const five = 'яблок';
-      const unit = Math.abs(applesNumber) % 10;
-      const tens = Math.abs(applesNumber) % 100;
+    const num = Number.parseInt(prompt('Введите количество'));
+    const word = declinationOfNumber(num, "яблоко", "яблока", "яблок");
+    function declinationOfNumber(num, one, two, five) {
+      const unit = Math.abs(num) % 10;
+      const tens = Math.abs(num) % 100;
       if (tens > 10 && tens < 21) {
         return five;
       } else if (unit === 1) {
@@ -41,9 +38,29 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
       } else if (unit > 1 && unit < 5) {
         return two;
       } else {
-        return five
+        return five;
       }
     }
+
+    console.log(`У Вас ${num} ${word}.`)
+    // const applesNumber = Number.parseInt(prompt('Введите количество'));
+    // const word = declinationOfNumber(applesNumber, "яблоко", "яблока", "яблок");
+    // function declinationOfNumber(applesNumber) {
+    //   const one = 'яблоко';
+    //   const two = 'яблока';
+    //   const five = 'яблок';
+    //   const unit = Math.abs(applesNumber) % 10;
+    //   const tens = Math.abs(applesNumber) % 100;
+    //   if (tens > 10 && tens < 21) {
+    //     return five;
+    //   } else if (unit === 1) {
+    //     return one;
+    //   } else if (unit > 1 && unit < 5) {
+    //     return two;
+    //   } else {
+    //     return five
+    //   }
+    // }
 
     console.log(`У Вас ${applesNumber} ${word}.`)
 
