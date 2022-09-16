@@ -43,21 +43,23 @@ Infinity делать не нужно, однако, в случае если б
       * Функция производит действие с числами a и b.
       * @param {number} a - число a.
       * @param {number} b - число b.
-      * @param {object} - действие с числами.
+      * @param {string} - действие с числами.
       * @return {number} - действие с числами a и b.
       */
     function mathOperation(a, b, action) {
       if (action === '+') {
         return sumFn(a, b);
-      } else if (action === '-') {
-        return difFn(a, b);
-      } else if (action === '*') {
-        return multFn(a, b);
-      } else if (action === '/') {
-        return divFn(a, b);
-      } else {
-        return NaN;
       }
+      if (action === '-') {
+        return difFn(a, b);
+      }
+      if (action === '*') {
+        return multFn(a, b);
+      }
+      if (action === '/') {
+        return divFn(a, b);
+      }
+      return NaN;
     }
 
     /**
@@ -79,11 +81,8 @@ Infinity делать не нужно, однако, в случае если б
     function difFn(a, b) {
       if (a > b) {
         return a - b;
-      } else if (b > a) {
-        return b - a;
-      } else {
-        return 0;
       }
+      return b - a;
     }
 
     /**
