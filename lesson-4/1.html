@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>1</title>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
+Необходимо создать функцию-конструктор/класс для продукта.
+Названия: `ProductES5` для es5 стиля, `ProductES6` для es6 стиля.
+При создании объекта от функции-конструктора/класса необходимо передавать имя
+и цену товара, эта информация должна быть сохранена в объекте.
+Также у объекта должна быть возможность выполнить метод `make25Discount`, данный
+метод должен уменьшать стоимость продукта на 25%.
+Необходимо продемонстрировать работу с объектом (в свободной форме).
+-->
+  <script>
+    "use strict";
+    //Создал обстракцию
+    function ProductES5(name, price) {
+      this.name = name;
+      this.price = +price;
+    };
+    //Создал метод снижения цены
+    ProductES5.prototype.makeDiscount = function (discount) {
+      this.price = this.price - this.price * (discount / 100);
+    };
+
+    const prodTelES5 = new ProductES5('telephone', 100); //Создал объект телефон
+    const prodCarES5 = new ProductES5('Car', 10000); //Создал объект автомобиль
+    prodTelES5.makeDiscount(25); //У объекта prod1ES5 изменил цену
+    console.log(prodTelES5); //Вывел объект prod1ES5 в консоль с изменением цены
+    console.log(prodCarES5); //Вывел в консоль объект с автом без снижения цены
+
+    class ProductES6 {
+      constructor(name, price) { //Создал обстракцию 
+        this.name = name;
+        this.price = price;
+      };
+      make25Discount() {
+        this.price = this.price - this.price * 0.25;//Создал метод снижения цены
+      };
+    };
+    const prodShirtES6 = new ProductES6('shirt', 50); //Создал объект рубашка
+    prodShirtES6.make25Discount();//Снизил её цену
+    console.log(prodShirtES6); //Вывел в консоль с изменением цены объект с
+                                                                //рубашкой
+  </script>
+</body>
+
+</html>
