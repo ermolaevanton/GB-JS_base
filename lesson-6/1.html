@@ -47,7 +47,7 @@
     const productNameEl = document.querySelectorAll('.productName');
     productNameEl.forEach(el => {
       el.style.fontSize = '24px';
-    })
+    });
 
     /*
     2. Установите всем элементам с классом "product" внешний отступ справа 50px.
@@ -67,7 +67,8 @@
         return;
       }
       event.target.textContent = 'Добавлено';
-    })
+      event.target.disabled = true;
+    });
 
 
     /*
@@ -85,9 +86,8 @@
     copyProduct.querySelector('.productName').innerText = 'Товар 4';
     const productLastChild = productAll[productAll.length - 1];
     productLastChild.classList.add('last-child');
-    document.querySelector('.product.last-child').style.display = 'none';
-    productLastChild.before(copyProduct);
-    console.dir(copyProduct);
+    document.querySelector('.product.last-child').replaceWith(copyProduct);
+
 
     /*
     5. По истечении 2 секунд с момента открытия страницы первый товар должен быть
