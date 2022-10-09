@@ -67,7 +67,7 @@
     const text = document.querySelector('.text');
     document.querySelector('.container')
       .addEventListener('click', ({ target }) => {
-        if (target.className !== 'nav-link') {
+        if (!target.classList.contains('nav-link')) {
           return;
         }
         if (target.classList.contains('nav-link')) {
@@ -88,6 +88,7 @@
      */
     const inputDiv = document.querySelector('#inputDiv');
     const input = document.querySelector('input');
+    input.value = 30;
     //вроде нет резкого увеличения :), сравнил с решением, там да, матформулу
     //видел, но на практике не увидел отличия
     input.addEventListener('input', () => {
